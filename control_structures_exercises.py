@@ -140,6 +140,8 @@ while True:
 
 # ~~~ 
 
+
+
 while not positive_num.isdigit():
     positive_num = input('Your input did not meet qualifications ')
     if positive_num.isdigit():
