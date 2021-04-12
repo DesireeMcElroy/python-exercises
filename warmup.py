@@ -23,12 +23,10 @@
 # # Feel free to make new variables/data types in between the string and the output dictionary
 # # Input truck = "toyota tacoma"
 
-# Make the make and model into a list, then assign a variable to make and a 
-# variable to model
 
 make_and_model = 'toyota tacoma'
 make = make_and_model.split()[0]
-model = make_and_model.split()[1]
+model = make_and_model.split()[1] 
 
 print(make_and_model)
 print(make)
@@ -54,9 +52,9 @@ print(truck)
 # Write the code that takes a dictionary containing make/model for a vehicle and capitalizes the 
 # first character of the make and the model:
 
-for element in truck:
-    truck['make'] = truck['make'].title()
-    truck['model'] = truck['model'].title()
+
+truck['make'] = truck['make'].title()
+truck['model'] = truck['model'].title()
 print(truck)
 
 
@@ -81,10 +79,24 @@ print(truck)
 # Create a list of 3 dictionaries where each dictionary represents a vehicle, as above Write the code 
 # that operates on that list of dictionaries in order to uppercase the entire make and model values.
 
-for element in truck:
-    truck['make'] = truck['make'].upper()
-    truck['model'] = truck['model'].upper()
-print(truck)
+trucks = [{
+    "make": "toyota,",
+    "model": "tacoma"
+},
+{
+    "make": "ford",
+    "model": "f150"
+},
+{
+    "make": "chevy",
+    "model": "trailblazer"
+}]
+
+
+for element in trucks:
+    element['make'] = element['make'].upper()
+    element['model'] = element['model'].upper()
+print(trucks)
 
 
 # Input
