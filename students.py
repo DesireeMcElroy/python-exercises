@@ -177,10 +177,68 @@ print(list_of_stu_grade_avg)
 
 
 # 6. How many pets does each student have?
+
+students
+
+
+
 # 7. How many students are in web development? data science?
+
+webdev_students = 0
+datasci_students = 0
+for stu in students:
+  if stu['course'] == 'web development':
+    webdev_students += 1
+  elif stu['course'] == 'data science':
+    datasci_students += 1
+print("Students in web development: ", webdev_students)
+print("Students in data science: ", datasci_students)
+
 # 8. What is the average number of pets for students in web development?
+
+avg_num_pets = 0
+total_pets = 0
+num_students = 0
+for stu in students:
+  if stu['course'] == 'web development':
+    student_pets = len(stu['pets'])
+    total_pets = total_pets + student_pets
+    num_students += 1
+avg_num_pets = total_pets / num_students
+print("Average number of pets per student in web development: ", avg_num_pets)
+
 # 9. What is the average pet age for students in data science?
+pet_count = 0
+age_count = 0
+for stu in students:
+    if stu['course'] == 'data science':
+        pet_count = pet_count + len(stu['pets'])
+        for i in range(0, len(stu['pets'])):
+            age_count = age_count + stu['pets'][i]['age']
+avg_pet_age = age_count / pet_count
+print("Average pet age is: ", avg_pet_age)
+
+
 # 10. What is most frequent coffee preference for data science students?
+
+light_drinkers = 0
+medium_drinkers = 0
+dark_drinkers = 0
+for stu in students:
+  if stu['course'] == 'data science':
+    if stu['coffee_preference'] == 'light':
+      light_drinkers += 1
+    elif stu['coffee_preference'] == 'medium':
+      medium_drinkers += 1
+    elif stu['coffee_preference'] == 'dark':
+      dark_drinkers += 1
+  if light_drinkers > medium_drinkers and dark_drinkers:
+    print("Light roast is the most frequent coffee preference.")
+  elif medium_drinkers > light_drinkers and dark_drinkers:
+    print("Medium roast is the most frequent coffee preference.")
+  elif dark_drinkers > light_drinkers and medium_drinkers:
+    print("Dark roast is the most frequent coffee preference.")
+
 # 11. What is the least frequent coffee preference for web development students?
 # 12. What is the average grade for students with at least 2 pets?
 # 13. How many students have 3 pets?
