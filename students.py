@@ -178,7 +178,11 @@ print(list_of_stu_grade_avg)
 
 # 6. How many pets does each student have?
 
-students
+pet_amount = []
+for stu in students:
+    pet_amount.append(len(stu['pets']))
+print(pet_amount)
+
 
 
 
@@ -232,20 +236,105 @@ for stu in students:
       medium_drinkers += 1
     elif stu['coffee_preference'] == 'dark':
       dark_drinkers += 1
-  if light_drinkers > medium_drinkers and dark_drinkers:
+if light_drinkers > medium_drinkers and dark_drinkers:
     print("Light roast is the most frequent coffee preference.")
-  elif medium_drinkers > light_drinkers and dark_drinkers:
+elif medium_drinkers > light_drinkers and dark_drinkers:
     print("Medium roast is the most frequent coffee preference.")
-  elif dark_drinkers > light_drinkers and medium_drinkers:
+elif dark_drinkers > light_drinkers and medium_drinkers:
     print("Dark roast is the most frequent coffee preference.")
 
 # 11. What is the least frequent coffee preference for web development students?
+
+light_drinkers = 0
+medium_drinkers = 0
+dark_drinkers = 0
+for stu in students:
+  if stu['course'] == 'web development':
+    if stu['coffee_preference'] == 'light':
+      light_drinkers += 1
+    elif stu['coffee_preference'] == 'medium':
+      medium_drinkers += 1
+    elif stu['coffee_preference'] == 'dark':
+      dark_drinkers += 1
+if light_drinkers < medium_drinkers and dark_drinkers:
+    print("Light roast is the least frequent coffee preference.")
+elif medium_drinkers < light_drinkers and dark_drinkers:
+    print("Medium roast is the least frequent coffee preference.")
+elif dark_drinkers < light_drinkers and medium_drinkers:
+    print("Dark roast is the least frequent coffee preference.")
+
 # 12. What is the average grade for students with at least 2 pets?
+
+two_pets_grade_avg = []
+for stu in students:
+    if len(stu['pets']) > 1:
+        student_grade_amount = len(stu['grades'])
+        sum_of_grades = sum(stu['grades'])
+        grade_average = sum_of_grades / student_grade_amount
+        two_pets_grade_avg.append(grade_average)
+print(two_pets_grade_avg)
+
 # 13. How many students have 3 pets?
+
+stu_three_pets = 0
+for stu in students:
+    if len(stu['pets']) > 2:
+        stu_three_pets += 1
+print(stu_three_pets)
+
 # 14. What is the average grade for students with 0 pets?
+
+zero_pets_grade_avg = []
+for stu in students:
+    if len(stu['pets']) == 0:
+        student_grade_amount = len(stu['grades'])
+        sum_of_grades = sum(stu['grades'])
+        grade_average = sum_of_grades / student_grade_amount
+        zero_pets_grade_avg.append(grade_average)
+print(zero_pets_grade_avg)
+
 # 15. What is the average grade for web development students? data science students?
-# 16. What is the average grade range (i.e. highest grade - lowest grade) for dark coffee drinkers?
+ds_total_grade_avg = []
+wd_total_grade_avg = []
+for stu in students:
+    if stu['course'] == 'web development':
+        wd_grade_amount = len(stu['grades'])
+        wd_sum_of_grades = sum(stu['grades'])
+        wd_grade_average = wd_sum_of_grades / wd_grade_amount
+        wd_total_grade_avg.append(wd_grade_average)
+    elif stu['course'] == "data science":
+        ds_grade_amount = len(stu['grades'])
+        ds_sum_of_grades = sum(stu['grades'])
+        ds_grade_average = ds_sum_of_grades / ds_grade_amount
+        ds_total_grade_avg.append(ds_grade_average)
+ds_avg = sum(ds_total_grade_avg) / len(ds_total_grade_avg)
+wd_avg = sum(wd_total_grade_avg) / len(wd_total_grade_avg)
+print('Data Science Grade Average: ', ds_avg)
+print('Web Development Grade Average: ', wd_avg)
+
+
+# 16. What is the average grade range (i.e. highest grade - lowest grade) for 
+# dark coffee drinkers?
+
+for stu in students:
+    if stu['coffee_preference'] == 'dark':
+
+
+
+
 # 17. What is the average number of pets for medium coffee drinkers?
+
+avg_num_pets = 0
+total_pets = 0
+num_students = 0
+for stu in students:
+  if stu['coffee_preference'] == 'medium':
+    student_pets = len(stu['pets'])
+    total_pets = total_pets + student_pets
+    num_students += 1
+avg_num_pets = total_pets / num_students
+print("Average number of pets per student for those drink medium roast: ", avg_num_pets)
+
 # 18. What is the most common type of pet for web development students?
 # 19. What is the average name length?
 # 20. What is the highest pet age for light coffee drinkers?
