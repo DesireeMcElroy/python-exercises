@@ -275,6 +275,41 @@ else:
     grade = 'A'
 
 
+# Create a list of dictionaries where each dictionary represents a book that you have read. 
+# Each dictionary in the list should have the keys title, author, and genre. Loop through 
+# the list and print out information about each book.
+
+bookshelf = [
+    {'title': 'Total Money Makeover',
+    'author': 'Dave Ramsey',
+    'genre': 'Nonfiction'},
+    {'title': '50 Shades of Gray',
+    'author': 'E. L. James',
+    'genre': 'Romance'},
+    {'title': 'What Alice Forgot',
+    'author': 'Lian Moriarty',
+    'genre': 'Drama'},
+]
+
+for book in bookshelf:
+    [print(key,': ', book[key]) for key in book]
+    print('-')
+
+# Prompt the user to enter a genre, then loop through your books list and print out the 
+# titles of all the books in that genre.
+
+chosen_genre = input("Please enter a genre: ")
+books_of_genre = []
+for book in bookshelf:
+    if chosen_genre.lower() == book['genre'].lower():
+        books_of_genre.append(book['title'])
+
+if books_of_genre == []:
+    print("Sorry, I don't have any titles in that genre.")
+
+else:
+    print("Here are the books I have that match that genre: ", books_of_genre)
+
 
 
 
