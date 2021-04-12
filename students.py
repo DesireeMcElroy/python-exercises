@@ -316,10 +316,13 @@ print('Web Development Grade Average: ', wd_avg)
 # 16. What is the average grade range (i.e. highest grade - lowest grade) for 
 # dark coffee drinkers?
 
+highest_lowest = []
 for stu in students:
     if stu['coffee_preference'] == 'dark':
-
-
+        grade_range = max(stu['grades']) - min(stu['grades'])
+        highest_lowest.append(grade_range)
+total_avg_rng = sum(highest_lowest) / len(highest_lowest)
+print(total_avg_rng)
 
 
 # 17. What is the average number of pets for medium coffee drinkers?
@@ -336,8 +339,50 @@ avg_num_pets = total_pets / num_students
 print("Average number of pets per student for those drink medium roast: ", avg_num_pets)
 
 # 18. What is the most common type of pet for web development students?
+
+horse = 0
+cat = 0
+dog = 0
+for stu in students:
+    if stu['course'] == 'web development':
+        p = len(stu['pets'])
+        for i in range(0,p):
+            if stu['pets'][i]['species'] == 'horse':
+                horse += 1
+            if stu['pets'][i]['species'] == 'cat':
+                cat += 1
+            if stu['pets'][i]['species'] == 'dog':
+                dog += 1
+if horse > cat and dog:
+    print('Web dev students love horses')
+elif cat > horse and dog:
+    print('Web dev students love cats')
+elif dog > horse and cat:
+    print('Web dev students love dogs')
+
+
+
 # 19. What is the average name length?
+stu_name_length = []
+for stu in students:
+    name_length = len(stu['student'])
+    stu_name_length.append(name_length)
+    avg_name_length = sum(stu_name_length) / len(stu_name_length)
+print(avg_name_length)
+
+
 # 20. What is the highest pet age for light coffee drinkers?
+
+oldest_pet = 0
+for stu in students:
+    if stu['coffee_preference'] == 'light':
+        a = len(stu['pets'])
+        for i in range(0,a):
+            if stu['pets'][i]['age'] > oldest_pet:
+                oldest_pet = stu['pets'][i]['age']
+print(oldest_pet)
+
+
 
 
 
