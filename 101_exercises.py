@@ -230,3 +230,75 @@ assert is_odd(positive_even_number) == False, "Ensure that the function is defin
 assert is_odd(negative_odd_number) == True, "Ensure that the function is defined, named properly, and returns the correct value"
 assert is_odd(negative_even_number) == False, "Ensure that the function is defined, named properly, and returns the correct value"
 print("Exercise 14 is correct.")
+
+
+
+
+
+
+# Exercise 43
+# Write a function definition named is_vowel that takes in value and returns True if the 
+# value is a, e, i, o, u in upper or lower case.
+def is_vowel(letter):
+    if letter in 'aeiouAEIOU':
+        return True
+    else:
+        return False
+
+# or
+
+# def is_vowel(char):
+#     all_vowels = 'aeiouAEIOU'
+#     return char in all_vowels
+
+assert is_vowel("a") == True
+assert is_vowel("U") == True
+assert is_vowel("banana") == False
+assert is_vowel("Q") == False
+assert is_vowel("y") == False
+print("Exercise 43 is correct.")
+
+
+
+# Exercise 44
+# Write a function definition named has_vowels that takes in value and returns True if 
+# the string contains any vowels.
+def has_vowels(word):
+    for n in word:
+        if n in 'aeiouAEIOU':
+            return True
+        else:
+            return False
+
+# or
+# def has_vowels(char):
+#     return any(c in char for c in 'aeiou')
+
+# assert has_vowels("banana") == True
+# assert has_vowels("ubuntu") == True
+# assert has_vowels("QQQQ") == False
+# assert has_vowels("wyrd") == False
+# print("Exercise 44 is correct.")
+
+
+
+
+
+# Exercise 54
+# Write a function definition named last that takes in sequence and returns the last value 
+# of that sequence.
+def last(word):
+    return word[-1]
+
+
+
+# def last(string):
+#     end=len(string)-1
+#     return string[end]
+    
+
+assert last("ubuntu") == "u"
+assert last([1, 2, 3, 4]) == 4
+assert last(["python", "is", "awesome"]) == "awesome"
+assert last(["kiwi", "mango", "guava"]) == "guava"
+print("Exercise 54 is correct.")
