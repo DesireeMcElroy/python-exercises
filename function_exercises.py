@@ -24,10 +24,8 @@ print(is_vowel('i'))
 # is a consonant, False otherwise. Use your is_vowel function to accomplish this.
 
 def is_consonant(b):
-    if b not in 'aeiouAEIOU':
+    if is_vowel(b) == False:
         return True
-    else:
-        return False
 print(is_consonant('q'))
 
 
@@ -105,7 +103,7 @@ def remove_vowels(n):
 print(remove_vowels('potato are good'))
 
 
-# Define a function named normalize_name. It should accept a string and return a 
+# 10. Define a function named normalize_name. It should accept a string and return a 
 # valid python identifier, that is:
 
 # anything that is not a valid python identifier should be removed
@@ -118,18 +116,38 @@ print(remove_vowels('potato are good'))
 # % Completed will become completed
 
 def normalize_name(word):
-        a = word[0].isalpha()
-        word = word.strip()
-        word = word.replace(' ', '_')
-        word = word.lower()
-        if a == False:
-            word.replace(word[0], '')
-        return word
-
-print(normalize_name('6Hey crew !'))
-
-
+    output = '' 
+    word = word.lower()
+    for let in word:
+        if let.isidentifier() or let == ' ':
+            output += let
+    output = output.strip()
+    output = output.replace(' ', '_')
+    return output
+print(normalize_name('6He_y crew123 !'))
 
 
 
 
+# Exercise 11
+# Write a function named cumulative_sum that accepts a list of numbers and returns a list 
+# that is the cumulative sum of the numbers in the list.
+
+# cumulative_sum([1, 1, 1]) returns [1, 2, 3]
+# cumulative_sum([1, 2, 3, 4]) returns [1, 3, 6, 10]
+
+
+# def cumulative_sum(numbers):
+#     output = []
+    
+#     # Enumerate gives us the index as well as the element at that index
+#     for i, number in enumerate(numbers):
+        
+#         # Calculate the sum of the list up to and including the given index
+#         sum_so_far = sum(numbers[:i + 1])
+        
+#         # append the sum_so_far to the output list
+#         output.append(sum_so_far)
+    
+#     return output
+# print(cumulative_sum([1, 2, 3, 4])
