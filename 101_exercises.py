@@ -291,6 +291,7 @@ def last(word):
     return word[-1]
 
 
+# or 
 
 # def last(string):
 #     end=len(string)-1
@@ -302,3 +303,103 @@ assert last([1, 2, 3, 4]) == 4
 assert last(["python", "is", "awesome"]) == "awesome"
 assert last(["kiwi", "mango", "guava"]) == "guava"
 print("Exercise 54 is correct.")
+
+
+
+
+# Exercise 68
+# Write a function definition named only_even_numbers that takes in sequence of 
+# numbers and returns the even numbers in a list.
+
+def only_even_numbers(number):
+    evens = []
+    for i in number:
+        if i % 2 == 0:
+            evens.append(i)
+    return evens
+
+
+
+assert only_even_numbers([1, 2, 3]) == [2]
+assert only_even_numbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]) == [-4, -2, 2, 4]
+assert only_even_numbers([-4, -3, 1]) == [-4]
+print("Exercise 68 is correct.")
+
+
+
+
+
+
+# Exercise 70
+# Write a function definition named only_negative_numbers 
+# that takes in sequence of numbers and returns the negative numbers in a list.
+
+def only_negative_numbers(number):
+    negatives = []
+    for i in number:
+        if i < 0:
+            negatives.append(i)
+    return negatives
+
+
+
+assert only_negative_numbers([1, 2, 3]) == []
+assert only_negative_numbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]) == [-5, -4, -3, -2, -1]
+assert only_negative_numbers([-4, -3, 1]) == [-4, -3]
+print("Exercise 70 is correct.")
+
+
+
+# Run this cell in order to have some setup data for the next exercises
+books = [
+    {
+        "title": "Genetic Algorithms and Machine Learning for Programmers",
+        "price": 36.99,
+        "author": "Frances Buontempo"
+    },
+    {
+        "title": "The Visual Display of Quantitative Information",
+        "price": 38.00,
+        "author": "Edward Tufte"
+    },
+    {
+        "title": "Practical Object-Oriented Design",
+        "author": "Sandi Metz",
+        "price": 30.47
+    },
+    {
+        "title": "Weapons of Math Destruction",
+        "author": "Cathy O'Neil",
+        "price": 17.44
+    }
+]
+
+
+# Exercise 91
+# Write a function named get_number_of_books that takes in a list of objects 
+# and returns the number of dictionaries in that list.
+
+def get_number_of_books(numbers):
+    return len(numbers)
+
+
+assert get_number_of_books(books) == 4
+print("Exercise 91 is complete.")
+
+
+
+
+# Exercise 92
+# Write a function named total_of_book_prices that takes in a list of 
+# dictionaries and returns the sum total of all the book prices added together
+
+def total_of_book_prices(number):
+    total = 0
+    for i in number:
+        total = total + number[i]['price']
+    return total
+
+
+
+assert total_of_book_prices(books) == 122.9
+print("Exercise 92 is complete.")
