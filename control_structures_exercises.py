@@ -34,9 +34,9 @@ while True:
     else:
         print('It\'s a weekend')
 
+
+
 # *** teacher notes
-
-
 if day_of_week.lower().startswith('s'):
     print('weekend')
 else:
